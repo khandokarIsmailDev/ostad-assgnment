@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model users {
+  id        Int        @id @default(autoincrement())
+  firstName String     @db.VarChar(50)
+  lastName  String     @db.VarChar(50)
+  email     String     @unique @db.VarChar(50)
+  mobile    String     @db.VarChar(50)
+  password  String     @db.VarChar(50)
+  otp       String     @db.VarChar(10)
+  comments  comments[]
+
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model comments {
+  id          Int       @id @default(autoincrement())
+  description String    @db.VarChar(1000)
+  userId      Int
+  users       users     @relation(fields: [userId], references: [id])
+  postId      Int
+  news_list   news_list @relation(fields: [postId], references: [id])
+}
+
+model news_list {
+  id         Int        @id @default(autoincrement())
+  title      String
+  short_des  String
+  img1       String
+  img2       String
+  img3       String
+  img4       String
+  key_words  String
+  long_des   String     @db.LongText
+  type       String
+  comments   comments[]
+  catId      Int
+  catagories catagories @relation(fields: [catId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0)
+}
+
+model catagories {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  news_list news_list[]
+
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0)
+}
+
+model socials {
+  id       Int    @id @default(autoincrement())
+  facebook String
+  youtube  String
+  twitter  String
+  linkedin String
+  about    String @db.Text
+  address  String @db.Text
+}
+
+model subscribers {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0)
+}
+
+model polices {
+  id       Int    @id @default(autoincrement())
+  long_des String @db.LongText
+  type     String
+}
