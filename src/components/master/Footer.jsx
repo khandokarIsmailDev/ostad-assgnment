@@ -1,99 +1,67 @@
-import React from 'react';
+/* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+import React from "react";
 
-const Footer = () => {
-    return (
-        <>
-        <hr />
-        <footer className="bg-white dark:bg-gray-900">
-  <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-    <div className="md:flex md:justify-between">
-      <div className="mb-6 md:mb-0">
-        <a href="https://flowbite.com/" className="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8 me-3"
-            alt="FlowBite Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            NEWS
-          </span>
-        </a>
-      </div>
-      <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-        <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-            Resources
-          </h2>
-          <ul className="text-gray-500 dark:text-gray-400 font-medium">
-            <li className="mb-4">
-              <a href="https://flowbite.com/" className="hover:underline">
-                NEWS
-              </a>
-            </li>
-            <li>
-              <a href="https://tailwindcss.com/" className="hover:underline">
-                Tailwind CSS
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-            Follow us
-          </h2>
-          <ul className="text-gray-500 dark:text-gray-400 font-medium">
-            <li className="mb-4">
-              <a
-                href="https://github.com/themesberg/flowbite"
-                className="hover:underline "
-              >
-                Github
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://discord.gg/4eeurUVvTy"
-                className="hover:underline"
-              >
-                Discord
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-            Legal
-          </h2>
-          <ul className="text-gray-500 dark:text-gray-400 font-medium">
-            <li className="mb-4">
-              <a href="#" className="hover:underline">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Terms &amp; Conditions
-              </a>
-            </li>
-          </ul>
+
+const Footer = ({ data }) => {
+  return (
+    <footer className="mt-5">
+      <div className="container">
+        <div className="footer">
+          <div className="row">
+            <div className="footer-one col-lg-4 col-sm-12 px-5 ">
+              <img src="/logos.png" className="" alt="" />
+              <p className="my-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Molestias harum, beatae perferendis fugiat quo quidem amet nobis
+                explicabo corporis eos maxime accusamus illo quaerat, sed, modi
+                enim nulla. Saepe, harum?
+              </p>
+              {data["socials"].map((social) => (
+                <div key={social.id} className="footer-one-social d-flex ">
+                  <a href={social['linkedin']}><i className="bi bi-github" /></a>
+                  <a href={social['facebook']}> <i className="bi bi-facebook" /></a>
+                  <a href={social['twitter']}><i className="bi bi-instagram" /></a>
+                  <a href={social['youtube']}><i className="bi bi-linkedin" /></a>
+                  
+                  
+                 
+                </div>
+              ))}
+            </div>
+            <div className="footer-two col-lg-4 col-sm-12 d-none d-lg-block">
+              <h4 className="fw-bold mb-3">Contacts</h4>
+              <p>
+                <span>Address: </span>Poranthana kishorgonj-sadar,Kishorgonj
+              </p>
+              <p>
+                <span>Email: </span>ismailkhandokar0@gmail.com
+              </p>
+              <p>
+                <span>Phone: </span>+88016-2490-4141
+              </p>
+              <p>
+                <span>Open: </span> Mon 8:00 am – 18:00 pm
+              </p>
+            </div>
+            <div className="footer-three col-lg-4 col-sm-12 d-none d-lg-block">
+              <h4 className="fw-bold mb-3">Categories</h4>
+              <ul>
+                {data["categories"].map((menu) => (
+                  <li key={menu.id} className="mb-3">
+                    <Link href={`/category?id=${menu.id}`}>{menu.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <div className="sm:flex sm:items-center sm:justify-between">
-      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-        © 2024{" "}
-        <a href="https://flowbite.com/" className="hover:underline">
-          NEWS™
-        </a>
-        . All Rights Reserved.
-      </span>
-    </div>
-  </div>
-</footer>
-        </>
-
-    );
+      <div className="copy mt-5 py-3 text-center border-top">
+        <p>@All right reserved by ISMAIL</p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

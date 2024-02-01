@@ -21,6 +21,8 @@ CREATE TABLE `comments` (
     `userId` INTEGER NOT NULL,
     `postId` INTEGER NOT NULL,
 
+    INDEX `comments_postId_fkey`(`postId`),
+    INDEX `comments_userId_fkey`(`userId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -40,6 +42,7 @@ CREATE TABLE `news_list` (
     `createdAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `updatedAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
 
+    INDEX `news_list_catId_fkey`(`catId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -86,12 +89,3 @@ CREATE TABLE `polices` (
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- AddForeignKey
-ALTER TABLE `comments` ADD CONSTRAINT `comments_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE `comments` ADD CONSTRAINT `comments_postId_fkey` FOREIGN KEY (`postId`) REFERENCES `news_list`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE `news_list` ADD CONSTRAINT `news_list_catId_fkey` FOREIGN KEY (`catId`) REFERENCES `catagories`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

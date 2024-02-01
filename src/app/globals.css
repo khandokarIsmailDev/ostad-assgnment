@@ -1,3 +1,202 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* top header section common color  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+  
+  html {
+    font-family: "Red Hat Display", sans-serif;
+  }
+  
+  section#topHeader {
+    border-bottom: 1px solid rgba(165, 183, 210, 0.4117647059);
+  }
+  section#topHeader a {
+    text-decoration: none;
+    color: #A5B7D2;
+    transition: 0.5s;
+  }
+  section#topHeader a:hover {
+    color: #fe4c1c;
+    transform: 0.5s;
+  }
+  
+  .same-color {
+    color: #A5B7D2;
+  }
+  
+  .same-bg-color {
+    background-color: #F0F6FF;
+  }
+  
+  .top-left-span {
+    border-right: 1px solid;
+  }
+  
+  #topRight a i {
+    color: #00C3FF;
+  }
+  
+  .top-image-search-shadow {
+    box-shadow: 3px 3px 7px 0px rgba(3, 162, 236, 0.5411764706);
+  }
+
+  /* navbar  */
+.nav-link-hover  {
+    transition: 0.5s;
+  }
+  .nav-link-hover:hover {
+    color: red !important;
+    transform: scale(1.12);
+  }
+  
+
+  
+section#great {
+  background: url("/subsOne.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+section#great .great {
+  padding: 13rem 0;
+  background: url("/subsTwo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+section#subscribe {
+  z-index: 10;
+  position: relative;
+}
+section#subscribe .container {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, #FF403E 0%, #FF811B 100%);
+  border-radius: 2rem;
+}
+section#subscribe .subscribe {
+  margin-top: -11rem !important;
+  z-index: 10;
+  padding: 5rem 2rem;
+}
+section#subscribe .subscribe-text {
+  color: #fff;
+}
+section#subscribe .subscribe-form-one {
+  width: 100%;
+}
+section#subscribe .subscribe-form form {
+  padding: 0.5rem 0;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  background-color: #fff;
+  border-radius: 6rem;
+  display: flex;
+  justify-content: space-between;
+}
+section#subscribe .subscribe-form form:hover button {
+  background-color: #0160E7;
+}
+section#subscribe .subscribe-form form input {
+  width: 60%;
+  border: none;
+  font-size: 1.5rem;
+}
+section#subscribe .subscribe-form form input:focus {
+  outline: 0;
+}
+section#subscribe .subscribe-form form button {
+  width: 30%;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 2rem;
+  border: none;
+  background-color: #FF423D;
+  color: #fff;
+  transition: 0.5s all;
+}
+section#subscribe .subscribe-form form button:hover {
+  transform: scale(0.8);
+}
+
+footer {
+  background-color: #0049B1;
+  background-image: url("/footerBg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+footer .footer {
+  margin-top: -7rem;
+  z-index: 0;
+  padding-bottom: 5rem;
+  padding-top: 10rem;
+}
+footer .footer-one img {
+  width: 60%;
+}
+footer .footer-one i {
+  padding-right: 1rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+}
+footer .footer-one i:nth-child(1) {
+  color: #D1E9FC;
+}
+footer .footer-one i:nth-child(2) {
+  color: #00C3FF;
+}
+footer .footer span {
+  color: #9ee8ff;
+  font-weight: 700;
+}
+footer .footer li a {
+  text-decoration: none;
+  font-weight: medium;
+  font-size: 1rem;
+  color: #9ee8ff;
+}
+
+
+section .contact-wrap-right {
+  background: #fff;
+}
+section .contact-wrap-right form {
+  line-height: 5rem !important;
+}
+section .contact-wrap-left {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, #FF403E 0%, #FF811B 100%);
+}
+section .contact-wrap-left span {
+  color: white;
+  font-weight: medium;
+}
+section .contact-wrap-left a {
+  color: #fff;
+  opacity: 75%;
+}
+section .contact-wrap-left i {
+  font-size: 20px;
+  color: #fff;
+}
+
+/*section#login, section#signup {*/
+/*  background-color: transparent;*/
+/*  background-image: linear-gradient(90deg, #FF403E 0%, #FF811B 100%);*/
+/*}*/
+
+/* section .card{
+  background-image: linear-gradient(90deg, #FF403E 0%, #FF811B 100%);
+} */
+
+
+/* carousel css  */
+.carousel-caption {
+  background: #ffffffa6;
+}
